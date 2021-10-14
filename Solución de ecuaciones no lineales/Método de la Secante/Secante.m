@@ -15,8 +15,10 @@ function [raiz, datos] = Secante(funcion, intervalo, n_iteraciones, tolerancia =
   datos = [];
   i = 1;
   while 1
-    disp(strcat("Numero iteracion: "))
+    disp(strcat("Numero iteracion: ", num2str(i)));
+    disp('Valor a:')
     disp(a);
+    disp('Valor b:')
     disp(b);
     Fa = funcion(a)
     Fb = funcion(b)
