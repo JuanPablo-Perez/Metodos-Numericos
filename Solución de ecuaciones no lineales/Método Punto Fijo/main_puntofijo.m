@@ -12,7 +12,9 @@ a = -20;
 b = 0;
 c = -5;
 i = 5;
-[r,datos,n] = Puntofijo(f,g,a,b,c);
+
+try 
+  [r,datos,n] = Puntofijo(f,g,a,b,c);
 formatSpec = 'El valor de corte es %4.6f, el número de iteraciones es %1.0f\n';
 fprintf(formatSpec,r,n)
 
@@ -27,20 +29,24 @@ fprintf(formatSpec,r,n)
   endfor
 
    %Gráfica del problema 1 
-figura1 = figure(1);
-t = a:0.1:b;
-plot(t,f(t), 'b-', "linewidth", 1)
-hold on;
-grid on;
-%Línea x = 0
-lineaCero = 0.*ones(length(t));
-plot(t, lineaCero, 'k-', "linewidth", 1);
-%Línea de corte
-Fa = f(a);
-Fb = f(b);
-yIntervalo = Fa: (Fb-Fa)/i: Fb;
-plot(r.*ones(length(yIntervalo)), yIntervalo, 'r-', "linewidth", 1);
-
+  figura1 = figure(1);
+  t = a:0.1:b;
+  plot(t,f(t), 'b-', "linewidth", 1)
+  hold on;
+  grid on;
+  %Línea x = 0
+  lineaCero = 0.*ones(length(t));
+  plot(t, lineaCero, 'k-', "linewidth", 1);
+  %Línea de corte
+  Fa = f(a);
+  Fb = f(b);
+  yIntervalo = Fa: (Fb-Fa)/i: Fb;
+  plot(r.*ones(length(yIntervalo)), yIntervalo, 'r-', "linewidth", 1);
+  
+catch err
+  fprintf('Error: %s\n',err.message);
+  %err.identifier
+end 
 
 
 %Problema 2
@@ -53,34 +59,40 @@ a = 0;
 b = 3;
 c = 2;
 i = 10;
-[r,datos,n] = Puntofijo(f,g,a,b,c);
-formatSpec = 'El valor de corte es %4.6f, el número de iteraciones es %1.0f\n';
-fprintf(formatSpec,r,n)
+try 
+  [r,datos,n] = Puntofijo(f,g,a,b,c);
+  formatSpec = 'El valor de corte es %4.6f, el número de iteraciones es %1.0f\n';
+  fprintf(formatSpec,r,n)
 
-  [m,o] = size(datos);
-  fprintf('Interación\ta\tb\txi\txi+1\tf(xi+1)\terror\n');
-  for i=1:m
-    fprintf('%d\t\t',i);
-    for j=1:o
-      fprintf('%d\t',datos(i,j));
-    endfor
-    fprintf('\n');
-  endfor
+   [m,o] = size(datos);
+    fprintf('Interación\ta\tb\txi\txi+1\tf(xi+1)\terror\n');
+   for i=1:m
+      fprintf('%d\t\t',i);
+      for j=1:o
+        fprintf('%d\t',datos(i,j));
+      endfor
+      fprintf('\n');
+   endfor
 
-%Gráfico problema 2
-figura2 = figure(2);
-t = a:0.1:b;
-plot(t,f(t), 'g-', "linewidth", 1)
-hold on;
-grid on;
-%Línea x = 0
-lineaCero = 0.*ones(length(t));
-plot(t, lineaCero, 'k-', "linewidth", 1);
-%Línea de corte
-Fa = f(a);
-Fb = f(b);
-yIntervalo =Fa: (Fb-Fa)/i: Fb;
-plot(r.*ones(length(yIntervalo)), yIntervalo, 'r-', "linewidth", 1);
+  %Gráfico problema 2
+  figura2 = figure(2);
+  t = a:0.1:b;
+  plot(t,f(t), 'g-', "linewidth", 1)
+  hold on;
+  grid on;
+  %Línea x = 0
+  lineaCero = 0.*ones(length(t));
+  plot(t, lineaCero, 'k-', "linewidth", 1);
+  %Línea de corte
+  Fa = f(a);
+  Fb = f(b);
+  yIntervalo =Fa: (Fb-Fa)/i: Fb;
+  plot(r.*ones(length(yIntervalo)), yIntervalo, 'r-', "linewidth", 1);
+  
+catch err
+  fprintf('Error: %s\n',err.message);
+  %err.identifier
+  end
 
 
 
