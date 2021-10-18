@@ -14,7 +14,8 @@ c = 1;
 datos="";
 
 
-[r, datos, n]= Newton(f,a,b,c);
+try
+  [r, datos, n]= Newton(f,a,b,c);
 formatSpec = 'El valor de corte es %4.6f, el número de iteraciones es %1.0f\n';
 fprintf(formatSpec,r,n)
 
@@ -44,6 +45,10 @@ Fa = double(subs(f, x, a));
 Fb = double(subs(f, x, b));
 yIntervalo =Fa: (Fb-Fa)/i: Fb;
 plot(r.*ones(length(yIntervalo)), yIntervalo, 'r-', "linewidth", 1);
+catch err
+  fprintf('Error: %s\n',err.message);
+  %err.identifier
+  end 
 
 
 
@@ -54,6 +59,7 @@ f =  x.^2-3.*x-3;
 a = 0;
 b = 5;
 c = 3;
+try 
 [r, datos, n]= Newton(f,a,b,c);
 formatSpec = 'El valor de corte es %4.6f, el número de iteraciones es %1.0f\n';
 fprintf(formatSpec,r,n)
@@ -86,3 +92,8 @@ Fa = double(subs(f, x, a));
 Fb = double(subs(f, x, b));
 yIntervalo =Fa: (Fb-Fa)/i: Fb;
 plot(r.*ones(length(yIntervalo)), yIntervalo, 'r-', "linewidth", 1);
+
+catch err
+  fprintf('Error: %s\n',err.message);
+  %err.identifier
+end
