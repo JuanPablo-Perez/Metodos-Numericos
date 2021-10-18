@@ -1,3 +1,8 @@
+%Autores : Carlos Calle, Francisco Cedillo y Juan Pérez
+%
+%Fecha : 18/10/2021
+%Descripción :Este programa encuentra las raices de ecuaciones no lineales por el método de Newton Raphson
+
 %Problema 1 
 %Se busca la potencia de una antena cuya función  está dada por ls ecuación:
 syms x
