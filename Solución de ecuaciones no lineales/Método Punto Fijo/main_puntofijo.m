@@ -1,3 +1,8 @@
+%Autores : Carlos Calle, Francisco Cedillo y Juan Pérez
+%
+%Fecha : 18/10/2021
+%Descripción :Este programa encuentra las raices de ecuaciones no lineales por el método de punto fijo 
+
 %Problema 1: Se busca la distancia que tiene que estar un receptor de señal de una antena para
 % que esta sea maxíma cuya ecuación está dada por:
 fprintf("Problema 1 \n")
