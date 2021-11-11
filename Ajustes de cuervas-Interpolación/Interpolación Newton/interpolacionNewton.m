@@ -1,16 +1,18 @@
- %regresionPolinomial
-%       [ecuacion] = regresionPolinomial(orden,X,Y)
+%       [ecuacion, valor,Y,X] = interpolacionNewton(x, y,  xi)
 %
 %       Parámetros entrada
-%            X = vector  de dimensión n 
-%            Y = vector de dimensión n 
-%            orden = grado que tendrá la ecuacion.
+%            x = vector  de dimensión n 
+%            y = vector de dimensión n 
+%            xi = valor en el que se desea aproximar la función
 %        Parámetros salida
-%             ecuacion = función que corresponde a la regresión polinomial de 
-%                       x,y y el orden.
+%             ecuacion = función que corresponde a la Interpolación polinomial  
+%                       de Newton de x,y y el orden.
+%             valor = resultado de la aproximación de xi
+%             Y = valores de la función en y 
+%             X = valores de la función en x 
 
  
- function  [ecuacion, valor] = interpolacionNewton(x, y,  xi)
+ function  [ecuacion, valor,Y,X] = interpolacionNewton(x, y,  xi)
    n = length(x);
    D = zeros(n,n);
    D(:, 1) = y;
@@ -26,11 +28,9 @@
      m = length(C);
      C(m) = C(m)+D(k, k);
    endfor   
-   ecuacion = poly2sym(C)
+   ecuacion = poly2sym(C);
    valor = polyval(C, xi);
-   X = linspace(min(x), max(x), 100);
+   X = linspace(min(x)-0.4, max(x)+0.4, 100);
    Y = polyval(C, X);
-   plot(X, Y, "r");
-   hold on
-   plot(x, y, 'o')
+
  endfunction
