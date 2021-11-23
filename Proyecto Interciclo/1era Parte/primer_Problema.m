@@ -6,22 +6,22 @@ warning('off','all');
 syms x
 
 % Funcion objetivo
-funcion1 = atan(x/pi)+x^5/2-1.3*(10)^6;
+funcion = atan(x/pi)+x^5/2-1.3*(10)^6;
 funcionG = @(t)  (2*(1.3*(10)^6 -atan(t/pi)))^(1/5);
 intervalo = [10, 30];
 puntoInicio = 12;
 
 %Datos para grafica
-tiempoProblema1 = [NaN];
-convergenciaProblema1 =  [NaN];
-iteracionesProblema1 = [NaN];
+tiempo = [NaN];
+convergencia =  [NaN];
+iteraciones = [NaN];
 
 
 %Biseccion
 disp('Metodo biseccion . . .' )
 tic
 try 
- [raiz, datos, i_Biseccion] = biseccion(funcion1, intervalo, iteracionesMax);
+ [raiz, datos, i_Biseccion] = biseccion(funcion, intervalo, iteracionesMax);
  convergencia_Biseccion= 1;
 catch err
  convergencia_Biseccion= 0;
@@ -30,9 +30,9 @@ catch err
 end
 tiempo_Biseccion = toc;
 %
-tiempoProblema1 = cat(1, tiempoProblema1, tiempo_Biseccion);
-convergenciaProblema1 =  cat(1, convergenciaProblema1, convergencia_Biseccion);
-iteracionesProblema1 =  cat(1, iteracionesProblema1, i_Biseccion);
+tiempo = cat(1, tiempo, tiempo_Biseccion);
+convergencia =  cat(1, convergencia, convergencia_Biseccion);
+iteraciones =  cat(1, iteraciones, i_Biseccion);
 %
 disp('Fin metodo biseccion '   )
 disp('')
@@ -42,18 +42,18 @@ disp('')
 disp('Metodo Newton . . .' )
 tic
 try 
-  [raiz,datos,i_Newton] = Newton(funcion1, intervalo , puntoInicio , tol =tolerancia, iter= iteracionesMax);
+  [raiz,datos,i_Newton] = Newton(funcion, intervalo , puntoInicio , tol =tolerancia, iter= iteracionesMax);
  convergencia_Newton= 1;
 catch err
  convergencia_Newton= 0;
- i_Newton = iteracionesMax;
+ i_Newton = NaN;
   fprintf('Error: %s\n',err.message)
 end
 tiempo_Newton = toc;
 %
-tiempoProblema1 = cat(1, tiempoProblema1, tiempo_Newton);
-convergenciaProblema1 =  cat(1, convergenciaProblema1, convergencia_Newton);
-iteracionesProblema1 =  cat(1, iteracionesProblema1, i_Newton);
+tiempo = cat(1, tiempo, tiempo_Newton);
+convergencia =  cat(1, convergencia, convergencia_Newton);
+iteraciones =  cat(1, iteraciones, i_Newton);
 %
 disp('Fin metodo Newton '   )
 disp('')
@@ -63,18 +63,18 @@ disp('')
 disp('Metodo Secante . . .' )
 tic
 try 
-  [raiz, datos,i_Secante] = Secante(funcion1, intervalo,  tol =tolerancia,iter= iteracionesMax);
+  [raiz, datos,i_Secante] = Secante(funcion, intervalo,  tol =tolerancia,iter= iteracionesMax);
  convergencia_Secante= 1;
 catch err
  convergencia_Secante= 0;
- i_Secante = iteracionesMax;
+ i_Secante = NaN;
   fprintf('Error: %s\n',err.message)
 end
 tiempo_Secante = toc;
 %
-tiempoProblema1 = cat(1, tiempoProblema1, tiempo_Secante);
-convergenciaProblema1 =  cat(1, convergenciaProblema1, convergencia_Secante);
-iteracionesProblema1 =  cat(1, iteracionesProblema1, i_Secante);
+tiempo = cat(1, tiempo, tiempo_Secante);
+convergencia =  cat(1, convergencia, convergencia_Secante);
+iteraciones =  cat(1, iteraciones, i_Secante);
 %
 disp('Fin metodo Secante'  )
 disp('')
@@ -84,18 +84,18 @@ disp('')
 disp('Metodo Punto Fijo . . .' )
 tic
 try 
-  [raiz,datos,i_PuntoFijo] = Puntofijo(funcion1, funcionG , intervalo, puntoInicio, tol =tolerancia,iter= iteracionesMax);
+  [raiz,datos,i_PuntoFijo] = Puntofijo(funcion, funcionG , intervalo, puntoInicio, tol =tolerancia,iter= iteracionesMax);
  convergencia_PuntoFijo= 1;
 catch err
  convergencia_PuntoFijo= 0;
- i_PuntoFijo = iteracionesMax;
+ i_PuntoFijo = NaN;
   fprintf('Error: %s\n',err.message)
 end
 tiempo_PuntoFijo= toc;
 %
-tiempoProblema1 = cat(1, tiempoProblema1, tiempo_PuntoFijo);
-convergenciaProblema1 =  cat(1, convergenciaProblema1, convergencia_PuntoFijo);
-iteracionesProblema1 =  cat(1, iteracionesProblema1, i_PuntoFijo);
+tiempo = cat(1, tiempo, tiempo_PuntoFijo);
+convergencia =  cat(1, convergencia, convergencia_PuntoFijo);
+iteraciones =  cat(1, iteraciones, i_PuntoFijo);
 %
 disp('Fin metodo Punto Fijo'  )
 disp('')
@@ -104,18 +104,18 @@ disp('')
 disp('Metodo Regula Falsi . . .' )
 tic
 try 
-  [raiz,datos,i_RegulaFalsi] = Regula(funcion1, intervalo,  tol =tolerancia, iter= iteracionesMax);
+  [raiz,datos,i_RegulaFalsi] = Regula(funcion, intervalo,  tol =tolerancia, iter= iteracionesMax);
  convergencia_RegulaFalsi= 1;
 catch err
  convergencia_RegulaFalsi= 0;
- i_RegulaFalsi = iteracionesMax;
+ i_RegulaFalsi = NaN;
   fprintf('Error: %s\n',err.message)
 end
 tiempo_RegulaFalsi= toc;
 %
-tiempoProblema1 = cat(1, tiempoProblema1, tiempo_RegulaFalsi);
-convergenciaProblema1 =  cat(1, convergenciaProblema1, convergencia_RegulaFalsi);
-iteracionesProblema1 =  cat(1, iteracionesProblema1, i_RegulaFalsi);
+tiempo = cat(1, tiempo, tiempo_RegulaFalsi);
+convergencia =  cat(1, convergencia, convergencia_RegulaFalsi);
+iteraciones =  cat(1, iteraciones, i_RegulaFalsi);
 %
 disp('Fin metodo Regula Falsi'  )
 disp('')
@@ -123,15 +123,15 @@ disp('')
 %Graficos primer problema
 metodos  = [0, 1, 2, 3, 4, 5];
 subplot(3,1,1)
-plot(metodos, tiempoProblema1, 'g')
+plot(metodos, tiempo, 'g')
 xticklabels({' ', 'Biseccion' ,'Newton' , 'Secante' , 'Punto Fijo' , 'Regula Falsi' })
 legend('Tiempo de ejecucion ')
 subplot(3,1,2)
-bar(metodos(2:end),convergenciaProblema1(2:end), 'r')
+bar(metodos(2:end),convergencia(2:end), 'r')
 xticklabels({'Biseccion' ,'Newton' , 'Secante' , 'Punto Fijo' , 'Regula Falsi' })
 legend(' Convergencia ')
 subplot(3,1,3)
-plot(metodos, iteracionesProblema1, 'b')
+plot(metodos, iteraciones, 'b')
 xticklabels({' ', 'Biseccion' ,'Newton' , 'Secante' , 'Punto Fijo' , 'Regula Falsi' })
 legend(' Numero de iteraciones ')
 endfunction
