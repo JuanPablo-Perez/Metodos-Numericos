@@ -1,15 +1,15 @@
 %integralTrapacio
-%       [valor, error,datosGrafica] = ntdiferenciasDivididas_Adelante(f, xi, h);
+%       [valor, error,datosGrafica] = integralTrapecio(funcion,intervalo,n);
 %
-%       Par·metros entrada
-%            funcion= funciÛn simbÛlica
-%            intervalo = Intervalo donde se evaluar· la integral
-%            n = segmentos en el que se dividir· el intervalo
+%       Par√°metros entrada
+%            funcion= funci√≥n simb√≥lica
+%            intervalo = Intervalo donde se evaluar√° la integral
+%            n = segmentos en el que se dividir√° el intervalo
 %
-%        Par·metros salida
+%        Par√°metros salida
 %             valor = valor aproximado de la integral
 %             error = porcentaje de error entre la integral real, y aquella calculada
-%             datosGrafica = datos que nos ayudaran a realizar la grafica de la funciÛn
+%             datosGrafica = datos que nos ayudaran a realizar la grafica de la funci√≥n
 
 
 function [valor, error, datosGrafica] = integralTrapecio(funcion, intervalo, n)
