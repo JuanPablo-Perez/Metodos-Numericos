@@ -1,5 +1,5 @@
 %integralTrapacio
-%       [valor, error,datosGrafica] = ntdiferenciasDivididas_Adelante(f, xi, h);
+%       [valor, error,datosGrafica] = integralTrapecio(funcion,intervalo,n);
 %
 %       Parámetros entrada
 %            funcion= función simbólica
