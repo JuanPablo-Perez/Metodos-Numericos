@@ -1,4 +1,14 @@
-% La función debe ser de la forma f(x), tal que F(x) = f(x)*exp(-x)
+%gauss_Laguerre
+%       [valor] = gauss_Laguerre(funcion, n)
+%
+%       Parámetros entrada
+%            funcion= función anónima de la forma f(x), tal que F(x) = f(x)*exp(-x)
+%            n = número de puntos base
+%
+%        Parámetros salida
+%             valor = valor aproximado de la integral
+
+
 
 function [valor] = gauss_Laguerre(funcion, n)
 nodosPeso = [
