@@ -1,4 +1,14 @@
-function [valor] = GaussHermite_2(funcion, n)
+%gauss_Hermite
+%       [valor] = gauss_Hermite(funcion, n)
+%
+%       Parámetros entrada
+%            funcion= función anónima  
+%            n = número de puntos base
+%
+%        Parámetros salida
+%             valor = valor aproximado de la integral
+
+function [valor] = gauss_Hermite(funcion, n)
   nodosPeso  = [
     3, 0.707107, 0.886227, 0, 0, 0, 0 ;
     5, 0, 1.224745, 1.181636, 0.295409, 0, 0 ;
