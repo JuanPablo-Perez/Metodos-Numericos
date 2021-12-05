@@ -1,4 +1,14 @@
-% funcion = f(x) tal que F(x) = f(x)*(1-x^2)^(1/2)
+%gauss_Chebyshev
+%       [valor, error] = gauss_Chebyshev(funcion, n)
+%
+%       Parámetros entrada
+%            funcion = f(x) tal que F(x) = f(x)*(1-x^2)^(1/2) 
+%            n = número de puntos base
+%
+%        Parámetros salida
+%             valor = valor aproximado de la integral
+%             error = error en el cálculo de la integral
+
 
 function [valor, error] = gauss_Chebyshev(funcion, n)
   syms x;
