@@ -43,25 +43,3 @@ function [valor, error] = integral_Impropia(funcion, intervalo);
   valor = integralFinal;
   error = abs((valor - integralReal)/integralReal * 100);
 endfunction
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # [integralNueva, error, datosGrafica] = reglaSimpson38(funcion, intervalo, 9);
