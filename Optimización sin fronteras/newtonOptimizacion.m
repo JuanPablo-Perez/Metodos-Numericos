@@ -1,3 +1,17 @@
+%newtonOptimizacion
+%       [matriz, puntoCritico, f_puntoCritico] = newtonOptimizacion(funcion, puntoInicial, iterMax, tolerancia = 1e-7)
+%
+%       Parametros de entrada 
+%           funcion = funcion a analizar
+%           puntoInicial = Punto de inicio 
+%           iterMax = Numero maximo de iteraciones 
+%
+%       Parametros de salida 
+%           matriz = matriz con los resultados 
+%           puntoCritico = punto critico de la funcion 
+%           f_puntoCritico = funcion evaluada en el punto critico 
+
+
 function [matriz, puntoCritico, f_puntoCritico] = newtonOptimizacion(funcion, puntoInicial, iterMax, tolerancia = 1e-7)
   syms x  y z;
   punto = puntoInicial;
@@ -33,6 +47,9 @@ function [matriz, puntoCritico, f_puntoCritico] = newtonOptimizacion(funcion, pu
   msgID = 'Newton Optimizacion:numero iteraciones';
   msg = "Se excedio el numero de iteraciones, posiblemente el método diverge'";
   error(msgID,msg)
+  
+  
+  endfunction
   
   
   endfunction
