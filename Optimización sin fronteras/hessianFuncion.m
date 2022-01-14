@@ -1,3 +1,14 @@
+%hessianFuncion
+%       [matrizHessian] = hessianFuncion(funcion, punto_Inicio)
+%
+%       Parametros de entrada 
+%           funcion = funcion a analizar
+%           puntoInicio = Punto de inicio 
+%
+%       Parametros de salida 
+%           matrizHessian = matriz con los resultados 
+
+
 function [matrizHessian] = hessianFuncion(funcion, punto_Inicio)
   syms x  y z;
   funcion_Anonima = @(t) double(subs(funcion, [x, y, z], t));
